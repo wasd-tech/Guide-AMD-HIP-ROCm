@@ -358,7 +358,7 @@ Per aggiornare llama.cpp eseguire i seguenti comandi con un terminale aperto nel
 
 ```
 git pull \
-&& rm -R build
+&& rm -r build
 ```
 
 E ripetere le istruzioni per compilare il codice.
