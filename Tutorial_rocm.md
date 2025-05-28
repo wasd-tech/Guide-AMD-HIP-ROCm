@@ -1081,7 +1081,17 @@ Per il momento flash attention non è da considerarsi attendibile come libreria:
 
 ### <a id="my-xformers">xformers</a>
 
-Questa libraria è semplicemente non funzionante su RDNA perchè utilizza composable_kernel. Per colpa della mancanza di questa libreria non funziona Unsloth e Nvidia ha un vantaggio nella generazione di immagini. Sarebbe accettabile se la libreria fosse vecchia di un paio di mesi o un anno ma sono 3 anni che questa barzelletta va avanti e 
+Questa libraria è semplicemente non funzionante su RDNA perchè utilizza composable_kernel. Per colpa della mancanza di questa libreria non funziona Unsloth e Nvidia ha un vantaggio nella generazione di immagini. Sarebbe accettabile se la libreria fosse vecchia di un paio di mesi o un anno ma sono 3 anni che questa barzelletta va avanti. Riporterò di seguito alcuni link significativi:
+
+https://github.com/ROCm/xformers/issues/9
+
+https://github.com/ROCm/composable_kernel/issues/1171
+
+https://github.com/ROCm/composable_kernel/issues/1434
+
+https://github.com/ROCm/xformers/issues/17
+
+https://github.com/ROCm/composable_kernel/issues/1958
 
 ### <a id="my-llama-factory">Llama-factory</a>
 
