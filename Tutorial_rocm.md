@@ -2,7 +2,7 @@
 
 ## Capitoli:
 
-* ### [Premessa](#premessa)
+* ### [Premessa](#my-premessa)
 
 * ### [A cosa serve questa guida](#a-cosa-serve-questa-guida)
 
@@ -78,7 +78,7 @@
 
 ***
 
-### <a id="premessa">Premessa:</a>
+### <a id="my-premessa">Premessa:</a>
 Questa guida verrà sicuramente ampliata e corretta nel tempo. In caso di problemi o se si vogliono suggerire modifiche siete fortemente invitati a farlo. Questa guida è fatta da persone per le persone.
 
 ### <a id="a-cosa-serve-questa-guida">A cosa serve questa guida:</a>
