@@ -72,7 +72,7 @@
 	
 	* #### [torchtune](#my-torchtune)
 	
-	* #### [Unsloth](#my-unsloth) **NON FUNZIONA**
+	* #### [Unsloth](#my-unsloth) **NON FUNZIONANTE**
 	
 * ### [Link utili](#my-link-utili)
 
