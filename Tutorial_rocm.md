@@ -4,13 +4,13 @@
 
 * ### [Premessa](#my-premessa)
 
-* ### [A cosa serve questa guida](#a-cosa-serve-questa-guida)
+* ### [A cosa serve questa guida](#my-a-cosa-serve-questa-guida)
 
-* ### [A cosa non serve questa guida](#a-cosa-non-serve-questa-guida)
+* ### [A cosa non serve questa guida](#my-a-cosa-non-serve-questa-guida)
 
-* ### [Prerequisiti](#prerequisiti)
+* ### [Prerequisiti](#my-prerequisiti)
 
-* ### [Glossario e comandi di base](#glossario-e-comandi-di-base)
+* ### [Glossario e comandi di base](#my-glossario-e-comandi-di-base)
 
 * ### [Creazione dell'ambiente tramite distrobox](#creazione-dell'ambiente-tramite-distrobox)
 
