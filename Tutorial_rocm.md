@@ -101,7 +101,7 @@ ROCm su linux e non su Windows, i passaggi qui utilizzati non funzioneranno su
 Windows.
 
 ### <a id="my-prerequisiti">Prerequisiti:</a>
-* Una scheda AMD (possibilmente una scheda appartenente alle seguenti generazioni: 6000(rdna2)/7000(rdna3)/9000(rdna4). Il supporto per le APU è in forte sviluppo in questo momento (ROCm6.4.1) e in teoria sono supportare e ci sono anche risultati per quanto riguarda le performance. Per maggiori informazioni vedere la sezione link utili. **Questa guida presuppone l'utilizzo di sistemi con una singola scheda video discreta, sistemi con più gpu discrete non sono mai stati testati da me ma con accorgimenti dovrebbero funzionare. Nel caso basta aprire un issue e discuterne.**
+* Una scheda AMD (possibilmente una scheda appartenente alle seguenti generazioni: 6000(rdna2)/7000(rdna3)/9000(rdna4). Il supporto per le APU è in forte sviluppo in questo momento (ROCm6.4.1) e in teoria sono supportare e ci sono anche risultati per quanto riguarda le performance. Per maggiori informazioni vedere la sezione link utili. **Questa guida presuppone l'utilizzo di sistemi con una singola scheda video discreta, sistemi con più gpu discrete non sono mai stati testati da me ma con accorgimenti dovrebbero funzionare. Nel caso basta aprire un Issue e discuterne.**
 * Un ssd per installare linux. Si può procedere in 2 modi:
 	* Ridimensionando il disco dove già è installato Windows.
 	* Comprando un altro ssd (consiglio un tera, minimo 500 gb)
