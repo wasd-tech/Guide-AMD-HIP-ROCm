@@ -12,76 +12,76 @@
 
 * ### [Glossario e comandi di base](#my-glossario-e-comandi-di-base)
 
-* ### [Creazione dell'ambiente tramite distrobox](#creazione-dell'ambiente-tramite-distrobox)
+* ### [Creazione dell'ambiente tramite distrobox](#my-creazione-dell'ambiente-tramite-distrobox)
 
-* ### [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* ### [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
-* ### [Utilizzo di un generico programma](#utilizzo-di-un-generico-programma)
+* ### [Utilizzo di un generico programma](#my-utilizzo-di-un-generico-programma)
 
 * ### LLM
 
-	* #### [Llamacpp](#llamacpp)
+	* #### [Llamacpp](#my-llamacpp)
 	
- 	* #### [Koboldcpp](#koboldcpp)
+ 	* #### [Koboldcpp](#my-koboldcpp)
  	
- 	* #### [vllm](#vllm)
+ 	* #### [vllm](#my-vllm)
  	
 * ### Immagini
 
-	* #### [Stable Diffusion web UI](#stable-diffusion-web-ui)
+	* #### [Stable Diffusion web UI](#my-stable-diffusion-web-ui)
 	
-	* #### [ComfyUI](#comfyui)
+	* #### [ComfyUI](#my-comfyui)
 	
 * ### Librerie
 
-	* #### [Bitsandbytes](#bitsandbytes)
+	* #### [Bitsandbytes](#my-bitsandbytes)
 	
-	* #### [ONNX Runtime](#onnxruntime)
+	* #### [ONNX Runtime](#my-onnxruntime)
 	
-	* #### [Tensorflow](#tensorflow)
+	* #### [Tensorflow](#my-tensorflow)
 	
-	* #### [JAX](#jax)
+	* #### [JAX](#my-jax)
 	
-	* #### [AWQ](#awq)
+	* #### [AWQ](#my-awq)
 	
-	* #### [GPTQModel](#gptqmodel)
+	* #### [GPTQModel](#my-gptqmodel)
 	
-	* #### [compressed-tensors](#compressed-tensors)
+	* #### [compressed-tensors](#my-compressed-tensors)
 	
-	* #### [torchao](#torchao)
+	* #### [torchao](#my-torchao)
 	
-	* #### [FBGEMM](#fbgemm)
+	* #### [FBGEMM](#my-fbgemm)
 	
-	* #### [ExLlamaV2](#exllamav2)
+	* #### [ExLlamaV2](#my-exllamav2)
 	
-	* #### [MLC](#mlc)
+	* #### [MLC](#my-mlc)
 	
-	* #### [CTranslate2](#ctranslate2) **FEEDBACK**
+	* #### [CTranslate2](#my-ctranslate2) **FEEDBACK**
 	
-	* #### [Flash Attention](#flashattention) **NON PROPRIO FUNZIONANTE**
+	* #### [Flash Attention](#my-flashattention) **NON PROPRIO FUNZIONANTE**
 	
-	* #### [xformers](#flashattention) **NON FUNZIONANTE**
+	* #### [xformers](#my-flashattention) **NON FUNZIONANTE**
 	
 * ### Fine-tuning
 
-	* #### [LLama-factory](#llama-factory)
+	* #### [LLama-factory](#my-llama-factory)
 	
-	* #### [axolotl](#axolotl)
+	* #### [axolotl](#my-axolotl)
 	
-	* #### [lightning](#lightning)
+	* #### [lightning](#my-lightning)
 	
-	* #### [torchtune](#torchtune)
+	* #### [torchtune](#my-torchtune)
 	
-	* #### [Unsloth](#unsloth) **NON FUNZIONA**
+	* #### [Unsloth](#my-unsloth) **NON FUNZIONA**
 	
-* ### [Link utili](#link-utili)
+* ### [Link utili](#my-link-utili)
 
 ***
 
 ### <a id="my-premessa">Premessa:</a>
 Questa guida verrà sicuramente ampliata e corretta nel tempo. In caso di problemi o se si vogliono suggerire modifiche siete fortemente invitati a farlo. Questa guida è fatta da persone per le persone.
 
-### <a id="a-cosa-serve-questa-guida">A cosa serve questa guida:</a>
+### <a id="my-a-cosa-serve-questa-guida">A cosa serve questa guida:</a>
 
 Alla fine di questo tutorial avrai creato un ambiente in cui potrai eseguire
 programmi AI accelerandoli con la tua scheda AMD (per esempio utilizzando
@@ -89,7 +89,7 @@ stable diffusion per creare immagini). Questa guida è espressamente rivolta
 a linux perchè per il momento è il luogo migliore in cui utilizzare l'AI
 con gpu AMD.
 
-### <a id="a-cosa-non-serve-questa-guida">A cosa non serve questa guida:</a>
+### <a id="my-a-cosa-non-serve-questa-guida">A cosa non serve questa guida:</a>
 
 Qui non imparerai ad utilizzare i suddetti programmi e senza una conoscenza più
 o meno avanzata di informatica e di linux potresti non capire alcuni passaggi.
@@ -100,7 +100,7 @@ da sottolineare è che questa guida riguarda esclusivamente il funzionamento di
 ROCm su linux e non su Windows, i passaggi qui utilizzati non funzioneranno su
 Windows.
 
-### <a id="prerequisiti">Prerequisiti:</a>
+### <a id="my-prerequisiti">Prerequisiti:</a>
 * Una scheda AMD (possibilmente una scheda appartenente alle seguenti generazioni: 6000(rdna2)/7000(rdna3)/9000(rdna4). Il supporto per le APU è in forte sviluppo in questo momento (ROCm6.4.1) e in teoria sono supportare e ci sono anche risultati per quanto riguarda le performance. Per maggiori informazioni vedere la sezione link utili. **Questa guida presuppone l'utilizzo di sistemi con una singola scheda video discreta, sistemi con più gpu discrete non sono mai stati testati da me ma con accorgimenti dovrebbero funzionare. Nel caso scrivetemi in privato**
 * Un ssd per installare linux. Si può procedere in 2 modi:
 	* Ridimensionando il disco dove già è installato Windows.
@@ -109,7 +109,7 @@ Windows.
 * Conoscenza di Linux? In teoria non è necessaria perchè utilizzeremo pochi comandi molto semplici e autoesplicativi però ovviamente una conoscenza anche di base vi potrebbe aiutare
 * Un po' di pazienza: purtroppo molti passaggi richiedono il download di molti file o altri tempi tecnici per installare software quindi preparatevi qualcosa da bere e da sgranocchiare!
 
-### <a id="glossario">Glossario e comandi di base:</a>
+### <a id="my-glossario">Glossario e comandi di base:</a>
 
 Quanto segue è una sorta di spiegazione più o meno dettagliata di alcuni comandi e concetti presenti nella guida.
 
@@ -129,7 +129,7 @@ Il comando [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/g
 
 Saranno presenti spesso le sigle gfx con numeri a seguire: queste sigle rappresentano le famiglie di schede video. Nello specifico gfx1030=rx6000/rdna2, gfx1100=rx7000/rdna3, gfx1201=rx9070, gfx1200=rx9060.
 
-### <a id="creazione-dell'ambiente-tramite-distrobox">Creazione dell'ambiente tramite distrobox:</a>
+### <a id="my-creazione-dell'ambiente-tramite-distrobox">Creazione dell'ambiente tramite distrobox:</a>
 
 Prima di procedere con qualsiasi cosa apri il terminale per eseguire il
 seguente comando che aggiornerà il sistema operativo e tutti i suoi programmi:
@@ -244,11 +244,11 @@ git clone https://github.com/ROCm/rocWMMA.git \
 
 Et voilà! Abbiamo finito, la "difficilissa" installazione di ROCm.
 
-### <a id="setup-pytorch-nel-container">Setup di pytorch nel container:</a>
+### <a id="my-setup-pytorch-nel-container">Setup di pytorch nel container:</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
 Pytorch è necessario in alcuni ambiti, principalmente per quanto riguarda la creazione di immagini e quando si lavora con l'audio, ed è effettivamente il vero "punto debole" di AMD, perché c'è sempre la possibilità che qualcosa non funzioni per bene e che si è costretti a provare svariate versioni fino a quando non si trova quella giusta con la possibilità che un aggiornamento al programma in uso ti rimetta di nuovo alla ricerca di versioni funzionanti. Ultimamente la situazione è migliorata tantissimo quindi sono fiducioso che se seguirai questi passi per installare pytorch non avrai problemi e tutto funzionerà al primo colpo.
 
@@ -281,7 +281,7 @@ Finito! Ora non resta che installare i vari programmi oppure, se si è capaci o 
 
 **Il resto della guida presuppone l'utilizzo di un generico ambiente virtuale denominato py312, nel caso di nomi diversi, per esempio se si desidera creare ambienti diversi per diverse applicazioni, bisogna sostituire py312 con il nome del vostro ambiente virtuale!!!**
 
-### <a id="utilizzo-di-un-generico-programma">Utilizzo di un generico programma:</a>
+### <a id="my-utilizzo-di-un-generico-programma">Utilizzo di un generico programma:</a>
 
 Molti programmi che consiglio e che spiegherò come installare seguiranno questo workflow:
 
@@ -301,11 +301,11 @@ Per quanto riguarda l'ambiente virtuale di python il consiglio è di creare semp
 
 Questa è tutto. E no, non sto scherzando. Questa è la "gigantesca difficoltà nell'utilizzare gpu AMD" che si sente molto parlare su internet. Nella pratica è vero che AMD sbaglia su diverse cose (come verrà aggiunto in seguito, negli elenchi delle librerie non funzionanti) ma il grosso punto debole che rende difficile l'utilizzo di gpu AMD è la mancanza di guide online, contro la valanga di guide per schede Nvidia.
 
-### <a id="llamacpp">Llamacpp</a>
+### <a id="my-llamacpp">Llamacpp</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
 Aprire il terminale ed eseguire i seguenti comandi, verrà creata la cartella llama.cpp:
 
@@ -363,11 +363,11 @@ git pull \
 
 E ripetere le istruzioni per compilare il codice.
 
-### <a id="koboldcpp">Koboldcpp</a>
+### <a id="my-koboldcpp">Koboldcpp</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
 Aprire il terminale ed eseguire i seguenti comandi, verrà creata la cartella koboldcpp:
 
@@ -432,15 +432,15 @@ git pull \
 
 E ripetere le istruzioni per compilare il codice.
 
-### <a id="vllm">vllm</a>
+### <a id="my-vllm">vllm</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
-Considero vllm uno strumento molto avanzato per il serving di llm quindi in realtà non rientra tra le librerie che un semplice utilizzatore di programmi AI ha bisogno ma essendo un pacchetto legato a Llama-factory spiegherò come installarlo. Per un utilizzo più estensivo, cioè se si desidera utilizzare principalmente questa libreria, si consiglia di utilizzare i [docker ufficiali forniti da AMD](https://hub.docker.com/u/rocm?page=1&search=vllm). Dalla wiki ufficiale di vllm viene suggerito di installare triton per il supporto di flash attention, si consiglia di dare un occhiata alla parte di guida che riguarda [flash attention](#flashattention).
+Considero vllm uno strumento molto avanzato per il serving di llm quindi in realtà non rientra tra le librerie che un semplice utilizzatore di programmi AI ha bisogno ma essendo un pacchetto legato a Llama-factory spiegherò come installarlo. Per un utilizzo più estensivo, cioè se si desidera utilizzare principalmente questa libreria, si consiglia di utilizzare i [docker ufficiali forniti da AMD](https://hub.docker.com/u/rocm?page=1&search=vllm). Dalla wiki ufficiale di vllm viene suggerito di installare triton per il supporto di flash attention, si consiglia di dare un occhiata alla parte di guida che riguarda [flash attention](#my-flashattention).
 
 Iniziamo clonando la repository:
 
@@ -497,13 +497,13 @@ export PYTORCH_ROCM_ARCH="gfx1200" python setup.py develop
 
 L'installazione di vllm per AMD non utilizzando il docker ufficiale è sconsigliata dagli sviluppatori quindi potrebbero esserci problemi.
 
-### <a id="stable-diffusion-web-ui">Stable Diffusion web UI</a>
+### <a id="my-stable-diffusion-web-ui">Stable Diffusion web UI</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 Apriamo un terminale e lanciamo questi comandi con la conseguente creazione della cartella stable-diffusion-webui:
 
@@ -552,13 +552,13 @@ git pull
 
 **In generale in ogni programma che usa una versione abbastanza recente di pytorch (se non erro 2.6 in su) può essere abilitato flash attention tramite triton**
 
-### <a id="comfyui">Comfyui</a>
+### <a id="my-comfyui">Comfyui</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell'ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell'ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 Cloniamo la repository da Github, verrà creata la cartella ComfyUI:
 
@@ -605,13 +605,13 @@ Per aggiornare ComfyUI eseguire il seguente comando con un terminale aperto nell
 git pull
 ```
 
-### <a id="bitsandbytes">Bitsandbytes</a>
+### <a id="my-bitsandbytes">Bitsandbytes</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell'ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell'ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 **Prerequisiti:**
 * La versione di pytorch installata deve coincidere con la versione di ROCm installata.
@@ -675,13 +675,13 @@ make -j$(nproc) \
 
 Per aggiornare la libreria purtroppo è necessario eliminare la cartella e ripetere la procedura da capo.
 
-### <a id="onnxruntime">ONNX Runtime</a>
+### <a id="my-onnxruntime">ONNX Runtime</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 Installiamo il pacchetto direttamente dalla repository ufficiale di AMD:
 
@@ -709,13 +709,13 @@ pip install onnxruntime_rocm -f https://repo.radeon.com/rocm/manylinux/rocm-rel-
 pip install onnxruntime_training -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
 ```
 
-### <a id="tensorflow">Tensorflow</a>
+### <a id="my-tensorflow">Tensorflow</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 Installiamo il pacchetto direttamente dalla repository ufficiale di AMD:
 
@@ -743,13 +743,13 @@ pip install tensorflow_rocm -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6
 pip install tf_nightly_rocm -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
 ```
 
-### <a id="jax">JAX</a>
+### <a id="my-jax">JAX</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 Installiamo il pacchetto direttamente dalla repository ufficiale di AMD:
 
@@ -771,13 +771,13 @@ https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/jaxlib-0.4.35-cp312-cp312-
 
 ```
 
-### <a id="awq">AWQ</a>
+### <a id="my-awq">AWQ</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -792,13 +792,13 @@ conda activate py312
 pip install autoawq
 ```
 
-### <a id="compressed-tensors">compressed-tensors</a>
+### <a id="my-compressed-tensors">compressed-tensors</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -813,13 +813,13 @@ conda activate py312
 pip install compressed-tensors
 ```
 
-### <a id="gptqmodel">GPTQModel</a>
+### <a id="my-gptqmodel">GPTQModel</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -834,13 +834,13 @@ conda activate py312
 pip install gptqmodel --no-build-isolation
 ```
 
-### <a id="torchao">torchao</a>
+### <a id="my-torchao">torchao</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -855,13 +855,13 @@ conda activate py312
 pip install --pre torchao --index-url https://download.pytorch.org/whl/nightly/rocm6.4
 ```
 
-### <a id="fbgemm">FBGEMM</a>
+### <a id="my-fbgemm">FBGEMM</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -876,13 +876,13 @@ conda activate py312
 pip install --pre fbgemm-gpu --index-url https://download.pytorch.org/whl/nightly/rocm6.4
 ```
 
-### <a id="exllamav2">ExLlamaV2</a>
+### <a id="my-exllamav2">ExLlamaV2</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 Entriamo nel container almalinux-rocm e utilizziamo una versione differente di gcc perché almalinux di base ne utilizza una troppo vecchia(nel caso si stesse utilizzando un container Ubuntu la versione di gcc dovrebbe essere già sufficentemente alta:
 
@@ -908,13 +908,13 @@ git clone https://github.com/turboderp/exllamav2 \
 && pip install .
 ```
 
-### <a id="mlc">MLC</a>
+### <a id="my-mlc">MLC</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -964,13 +964,13 @@ sudo dnf install -y cargo
 cmake .. && cmake --build . --parallel $(nproc) && cd ..
 ```
 
-### <a id="ctranslate2">CTranslate2</a>
+### <a id="my-ctranslate2">CTranslate2</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 **Purtroppo non sono riuscito a farlo funzionare ma c'è una guida che ha portato maggiore fortuna ad altri. Di seguito viene riportato quello che ho provato io fallendo miseramente. Se qualcuno riesce a far funzionare tutto, perfavore segnalatelo**
 
@@ -1038,13 +1038,13 @@ Finalmente installiamo:
 
 I test vengono eseguiti correttamente come scritto nel file README ma non riesco ad usare faster-whisper.
 
-### <a id="flashattention">Flash Attention NON PROPRIO FUNZIONANTE</a>
+### <a id="my-flashattention">Flash Attention NON PROPRIO FUNZIONANTE</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 Per il momento (ROCm6.4.1) ci sono due backend per flash attention per AMD: Triton e composable_kernel. Triton supporta le architetture RDNA e CDNA (le Instinct di AMD) mentre composable_kernel funziona solo con CDNA. Ovviamente in questa guida si fa riferimento esclusivamente a RDNA quindi procediamo con Triton:
 
@@ -1079,13 +1079,13 @@ FLASH_ATTENTION_TRITON_AMD_ENABLE="TRUE"
 
 Per il momento flash attention non è da considerarsi attendibile come libreria: potrebbe non funzionare, funzionare occasionalmente o magari anche ridurre le prestazioni anzichè aumentarle. I feedback in merito sono estremamente utili.
 
-### <a id="llama-factory">Llama-factory</a>
+### <a id="my-llama-factory">Llama-factory</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 **È fortemente consigliato creare un ambiente virtuale appositamente per Llama-facotory**
 
@@ -1109,13 +1109,13 @@ git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git \
 && pip install -e ".[torch,metrics]" --no-build-isolation
 ```
 
-### <a id="axolotl">axolotl</a>
+### <a id="my-axolotl">axolotl</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 **È fortemente consigliato creare un ambiente virtuale appositamente per axolotl**
 
@@ -1131,7 +1131,7 @@ distrobox enter almalinux-rocm
 conda activate py312
 ```
 
-Teoricamente è possibile installare axolotl con l'argomento flash-attn dopo aver installato flash attention in [questo modo](#flashattention) (i feedback sono ben accetti). Per quanto riguarda l'argomento deepspeed nella guida ufficiale dello sviluppatore non viene inserito ma farei dei test abilitandolo visto che per deepspeed ci sono stati diversi contributi per farlo funzionare su AMD, tentar non nuoce. Nel peggiore dei casi eseguire l'ultimo comando senza i due argomenti:
+Teoricamente è possibile installare axolotl con l'argomento flash-attn dopo aver installato flash attention in [questo modo](#my-flashattention) (i feedback sono ben accetti). Per quanto riguarda l'argomento deepspeed nella guida ufficiale dello sviluppatore non viene inserito ma farei dei test abilitandolo visto che per deepspeed ci sono stati diversi contributi per farlo funzionare su AMD, tentar non nuoce. Nel peggiore dei casi eseguire l'ultimo comando senza i due argomenti:
 
 ```
 git clone https://github.com/axolotl-ai-cloud/axolotl \
@@ -1140,15 +1140,15 @@ git clone https://github.com/axolotl-ai-cloud/axolotl \
 && pip install --no-build-isolation -e .[flash-attn,deepspeed]
 ```
 
-Fatto ciò installiamo Bitsandbytes in [questo modo](#bitsandbytes) per farlo funzionare su schede AMD.
+Fatto ciò installiamo Bitsandbytes in [questo modo](#my-bitsandbytes) per farlo funzionare su schede AMD.
 
-### <a id="lightning">lightning</a>
+### <a id="my-lightning">lightning</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -1163,13 +1163,13 @@ conda activate py312
 python -m pip install lightning
 ```
 
-### <a id="torchtune">torchtune</a>
+### <a id="my-torchtune">torchtune</a>
 
 **Presuppone che tu abbia seguito**:
 
-* [Creazione dell'ambiente tramite distrobox](#creazione-dell-ambiente-tramite-distrobox)
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
 
-* [Setup di pytorch nel container](#setup-pytorch-nel-container)
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -1184,7 +1184,7 @@ conda activate py312
 pip install --pre torchao torchtune --index-url https://download.pytorch.org/whl/nightly/rocm6.4
 ```
 
-### <a id="link-utili">Link utili</a>
+### <a id="my-link-utili">Link utili</a>
 
 https://llm-tracker.info/howto/AMD-GPUs: La guida che ha inspirato questa opera.
 
