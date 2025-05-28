@@ -60,7 +60,7 @@
 	
 	* #### [Flash Attention](#my-flashattention) **NON PROPRIO FUNZIONANTE**
 	
-	* #### [xformers](#my-flashattention) **NON FUNZIONANTE**
+	* #### [xformers](#my-xformers) **NON FUNZIONANTE**
 	
 * ### Fine-tuning
 
@@ -1079,6 +1079,10 @@ FLASH_ATTENTION_TRITON_AMD_ENABLE="TRUE"
 
 Per il momento flash attention non è da considerarsi attendibile come libreria: potrebbe non funzionare, funzionare occasionalmente o magari anche ridurre le prestazioni anzichè aumentarle. I feedback in merito sono estremamente utili.
 
+### <a id="my-xformer">xformers</a>
+
+Questa libraria è semplicemente non funzionante su RDNA perchè utilizza composable_kernel. Per colpa della mancanza di questa libreria non funziona Unsloth e Nvidia ha un vantaggio nella generazione di immagini. Sarebbe accettabile se la libreria fosse vecchia di un paio di mesi o un anno ma sono 3 anni che questa barzelletta va avanti e 
+
 ### <a id="my-llama-factory">Llama-factory</a>
 
 **Presuppone che tu abbia seguito**:
@@ -1183,6 +1187,10 @@ conda activate py312
 # Infine installiamo il pacchetto
 pip install --pre torchao torchtune --index-url https://download.pytorch.org/whl/nightly/rocm6.4
 ```
+
+### <a id="my-unsloth">Unsloth</a>
+
+Purtroppo non funziona, vedi [xformers](#my-xformers)
 
 ### <a id="my-link-utili">Link utili</a>
 
