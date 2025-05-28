@@ -449,7 +449,7 @@ git clone https://github.com/ROCm/vllm.git \
 && cd vllm
 ```
 
-Entriamo nel container almalinux-rocm e installiamo una versione differente di gcc perché almalinux ne utilizza una troppo vecchia(nel caso si stesse utilizzando un container Ubuntu la versione di gcc dovrebbe essere già sufficentemente alta:
+Entriamo nel container almalinux-rocm e installiamo una versione differente di gcc perché almalinux ne utilizza una troppo vecchia(nel caso si stesse utilizzando un container Ubuntu la versione di gcc dovrebbe essere già sufficentemente alta):
 
 ```
 # Da eseguire in ordine uno alla volta
