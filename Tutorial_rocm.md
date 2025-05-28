@@ -550,6 +550,8 @@ Per aggiornare Stable Diffusion web UI eseguire il seguente comando con un termi
 git pull
 ```
 
+E ripetere i comandi riguardo l'installazione.
+
 **In generale in ogni programma che usa una versione abbastanza recente di pytorch (se non erro 2.6 in su) può essere abilitato flash attention tramite triton**
 
 ### <a id="my-comfyui">Comfyui</a>
@@ -604,6 +606,8 @@ Per aggiornare ComfyUI eseguire il seguente comando con un terminale aperto nell
 ```
 git pull
 ```
+
+E ripetere i comandi riguardo l'installazione.
 
 ### <a id="my-bitsandbytes">Bitsandbytes</a>
 
