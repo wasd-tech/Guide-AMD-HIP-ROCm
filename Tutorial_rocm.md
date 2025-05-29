@@ -261,7 +261,7 @@ distrobox enter almalinux-rocm
 In seguito creiamo quello che viene definito un ambiente virtuale con miniconda. Funziona un po' come un container ma molto più specifico perchè riguarda i pacchetti di python. L'ambiente virtuale ci permette, in caso di problemi, di eliminare l'ambiente e di ricrearne un altro in pochissimo tempo e di utilizzare più versioni di python diverse e con diverse versioni dei pacchetti. Così facendo potremo avere un ambiente specifico per ogni applicazione che funziona sempre e magari crearne di nuovi mano a mano più aggiornati per provare nuove funzioni senza modificare quello funzionante. Ma basta chiacchiere e creamo un ambiente virtuale chiamato py312 con python 3.12 installato:
 
 ```
-conda create -n py312 python=3.12
+conda create -y -n py312 python=3.12
 ```
 
 Ed attiviamolo:
