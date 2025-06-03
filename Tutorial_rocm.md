@@ -1180,10 +1180,10 @@ Teoricamente è possibile installare axolotl con l'argomento flash-attn dopo ave
 git clone https://github.com/axolotl-ai-cloud/axolotl \
 && cd axolotl \
 && pip install packaging ninja \
-&& pip install --no-build-isolation -e .[flash-attn,deepspeed]
+&& pip install --no-build-isolation -e .[,deepspeed]
 ```
 
-Fatto ciò installiamo Bitsandbytes in [questo modo](#my-bitsandbytes) per farlo funzionare su schede AMD.
+Fatto ciò installiamo Bitsandbytes in [questo modo](#my-bitsandbytes) e flash-attention in [questo modo](#my-flashattention) per farlo funzionare su schede AMD.
 
 ### <a id="my-lightning">lightning</a>
 
