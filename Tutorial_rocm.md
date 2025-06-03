@@ -1054,6 +1054,7 @@ Per il momento (ROCm6.4.1) ci sono due backend per flash attention per AMD: Trit
 
 ```
 git clone https://github.com/ROCm/flash-attention.git \
+&& cd flash-attention \
 && git checkout main_perf
 ```
 
