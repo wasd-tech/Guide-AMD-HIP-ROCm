@@ -45,6 +45,8 @@
 	* #### [AWQ](#my-awq)
 	
 	* #### [GPTQModel](#my-gptqmodel)
+
+  	* #### [HQQ](#my-hqq)
 	
 	* #### [compressed-tensors](#my-compressed-tensors)
 	
@@ -796,27 +798,6 @@ conda activate py312
 pip install autoawq
 ```
 
-### <a id="my-compressed-tensors">compressed-tensors</a>
-
-**Presuppone che tu abbia seguito**:
-
-* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
-
-* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
-
-```
-# Da eseguire in ordine uno alla volta
-
-# Ovviamente entriamo nel container almalinux-rocm
-distrobox enter almalinux-rocm
-
-# E attiviamo l'ambiente virtuale py312
-conda activate py312
-
-# Infine installiamo il pacchetto
-pip install compressed-tensors
-```
-
 ### <a id="my-gptqmodel">GPTQModel</a>
 
 **Presuppone che tu abbia seguito**:
@@ -836,6 +817,49 @@ conda activate py312
 
 # Infine installiamo il pacchetto
 pip install gptqmodel --no-build-isolation
+```
+
+
+### <a id="my-hqq">HQQ</a>
+
+**Presuppone che tu abbia seguito**:
+
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
+
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
+
+```
+# Da eseguire in ordine uno alla volta
+
+# Ovviamente entriamo nel container almalinux-rocm
+distrobox enter almalinux-rocm
+
+# E attiviamo l'ambiente virtuale py312
+conda activate py312
+
+# Infine installiamo il pacchetto
+pip install hqq
+```
+
+### <a id="my-compressed-tensors">compressed-tensors</a>
+
+**Presuppone che tu abbia seguito**:
+
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
+
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
+
+```
+# Da eseguire in ordine uno alla volta
+
+# Ovviamente entriamo nel container almalinux-rocm
+distrobox enter almalinux-rocm
+
+# E attiviamo l'ambiente virtuale py312
+conda activate py312
+
+# Infine installiamo il pacchetto
+pip install compressed-tensors
 ```
 
 ### <a id="my-torchao">torchao</a>
