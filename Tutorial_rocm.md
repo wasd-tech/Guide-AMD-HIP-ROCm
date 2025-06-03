@@ -474,25 +474,25 @@ pip install -r requirements/rocm.txt
 * Se si utilizza una 6000/rdna2:
 
 ```
-export PYTORCH_ROCM_ARCH="gfx1030" python setup.py develop
+PYTORCH_ROCM_ARCH="gfx1030" python setup.py develop
 ```
 
 * Se si utilizza una 7000/rdna3:
 
 ```
-export PYTORCH_ROCM_ARCH="gfx1100" python setup.py develop
+PYTORCH_ROCM_ARCH="gfx1100" python setup.py develop
 ```
 
 * Se si utilizza una 9070:
 
 ```
-export PYTORCH_ROCM_ARCH="gfx1201" python setup.py develop
+PYTORCH_ROCM_ARCH="gfx1201" python setup.py develop
 ```
 
 * Se si utilizza una 9060:
 
 ```
-export PYTORCH_ROCM_ARCH="gfx1200" python setup.py develop
+PYTORCH_ROCM_ARCH="gfx1200" python setup.py develop
 ```
 
 L'installazione di vllm per AMD non utilizzando il docker ufficiale è sconsigliata dagli sviluppatori quindi potrebbero esserci problemi.
