@@ -32,7 +32,7 @@
 	
 	* #### [ComfyUI](#my-comfyui)
 
-* ### Quantizazione
+* ### Quantizzazione
 
 	* #### [Bitsandbytes](#my-bitsandbytes)
 
