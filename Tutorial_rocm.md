@@ -768,27 +768,6 @@ conda activate py312
 pip install compressed-tensors
 ```
 
-### <a id="my-torchao">torchao</a>
-
-**Presuppone che tu abbia seguito**:
-
-* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
-
-* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
-
-```
-# Da eseguire in ordine uno alla volta
-
-# Ovviamente entriamo nel container almalinux-rocm
-distrobox enter almalinux-rocm
-
-# E attiviamo l'ambiente virtuale py312
-conda activate py312
-
-# Infine installiamo il pacchetto
-pip install --pre torchao --index-url https://download.pytorch.org/whl/nightly/rocm6.4
-```
-
 ### <a id="my-fbgemm">FBGEMM</a>
 
 **Presuppone che tu abbia seguito**:
@@ -808,6 +787,27 @@ conda activate py312
 
 # Infine installiamo il pacchetto
 pip install --pre fbgemm-gpu --index-url https://download.pytorch.org/whl/nightly/rocm6.4
+```
+
+### <a id="my-torchao">torchao</a>
+
+**Presuppone che tu abbia seguito**:
+
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
+
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
+
+```
+# Da eseguire in ordine uno alla volta
+
+# Ovviamente entriamo nel container almalinux-rocm
+distrobox enter almalinux-rocm
+
+# E attiviamo l'ambiente virtuale py312
+conda activate py312
+
+# Infine installiamo il pacchetto
+pip install --pre torchao --index-url https://download.pytorch.org/whl/nightly/rocm6.4
 ```
 
 ### <a id="my-exllamav2">ExLlamaV2</a>
