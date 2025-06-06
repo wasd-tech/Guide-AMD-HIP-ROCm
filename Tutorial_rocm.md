@@ -31,17 +31,11 @@
 	* #### [Stable Diffusion web UI](#my-stable-diffusion-web-ui)
 	
 	* #### [ComfyUI](#my-comfyui)
-	
-* ### Librerie
+
+* ### Quantizazione
 
 	* #### [Bitsandbytes](#my-bitsandbytes)
-	
-	* #### [ONNX Runtime](#my-onnxruntime)
-	
-	* #### [Tensorflow](#my-tensorflow)
-	
-	* #### [JAX](#my-jax)
-	
+
 	* #### [AWQ](#my-awq)
 	
 	* #### [GPTQModel](#my-gptqmodel)
@@ -49,14 +43,22 @@
   	* #### [HQQ](#my-hqq)
 	
 	* #### [compressed-tensors](#my-compressed-tensors)
-	
+
+	* #### [FBGEMM](#my-fbgemm)
+
+	* #### [ExLlamaV2](#my-exllamav2)
+
+	* #### [MLC](#my-mlc)
+
 	* #### [torchao](#my-torchao)
 	
-	* #### [FBGEMM](#my-fbgemm)
+* ### Librerie
+
+	* #### [ONNX Runtime](#my-onnxruntime)
 	
-	* #### [ExLlamaV2](#my-exllamav2)
+	* #### [Tensorflow](#my-tensorflow)
 	
-	* #### [MLC](#my-mlc)
+	* #### [JAX](#my-jax)
 	
 	* #### [CTranslate2](#my-ctranslate2) **FEEDBACK**
 	
@@ -681,102 +683,6 @@ make -j$(nproc) \
 
 Per aggiornare la libreria purtroppo è necessario eliminare la cartella e ripetere la procedura da capo.
 
-### <a id="my-onnxruntime">ONNX Runtime</a>
-
-**Presuppone che tu abbia seguito**:
-
-* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
-
-* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
-
-Installiamo il pacchetto direttamente dalla repository ufficiale di AMD:
-
-```
-# Da eseguire in ordine uno alla volta
-
-# Ovviamente entriamo nel container almalinux-rocm
-distrobox enter almalinux-rocm
-
-# E attiviamo l'ambiente virtuale py312
-conda activate py312
-```
-
-Si possono installare sia il pacchetto per l'inferenza che per il training.
-
-* Inferenza:
-
-```
-pip install onnxruntime_rocm -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
-```
-
-* Training:
-
-```
-pip install onnxruntime_training -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
-```
-
-### <a id="my-tensorflow">Tensorflow</a>
-
-**Presuppone che tu abbia seguito**:
-
-* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
-
-* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
-
-Installiamo il pacchetto direttamente dalla repository ufficiale di AMD:
-
-```
-# Da eseguire in ordine uno alla volta
-
-# Ovviamente entriamo nel container almalinux-rocm
-distrobox enter almalinux-rocm
-
-# E attiviamo l'ambiente virtuale py312
-conda activate py312
-```
-
-Si possono installare sia la versione base che nightly.
-
-* Base:
-
-```
-pip install tensorflow_rocm -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
-```
-
-* Nightly:
-
-```
-pip install tf_nightly_rocm -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
-```
-
-### <a id="my-jax">JAX</a>
-
-**Presuppone che tu abbia seguito**:
-
-* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
-
-* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
-
-Installiamo il pacchetto direttamente dalla repository ufficiale di AMD:
-
-```
-# Da eseguire in ordine uno alla volta
-
-# Ovviamente entriamo nel container almalinux-rocm
-distrobox enter almalinux-rocm
-
-# E attiviamo l'ambiente virtuale py312
-conda activate py312
-
-# Infine installiamo i pacchetti
-pip install \
-https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/jax-0.4.35-py3-none-any.whl \
-https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/jax_rocm60_pjrt-0.4.35-py3-none-manylinux_2_28_x86_64.whl \
-https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/jax_rocm60_plugin-0.4.35-cp312-cp312-manylinux_2_28_x86_64.whl \
-https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/jaxlib-0.4.35-cp312-cp312-manylinux_2_28_x86_64.whl
-
-```
-
 ### <a id="my-awq">AWQ</a>
 
 **Presuppone che tu abbia seguito**:
@@ -990,6 +896,101 @@ sudo dnf install -y cargo
 
 # Compiliamo
 cmake .. && cmake --build . --parallel $(nproc) && cd ..
+```
+
+### <a id="my-onnxruntime">ONNX Runtime</a>
+
+**Presuppone che tu abbia seguito**:
+
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
+
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
+
+Installiamo il pacchetto direttamente dalla repository ufficiale di AMD:
+
+```
+# Da eseguire in ordine uno alla volta
+
+# Ovviamente entriamo nel container almalinux-rocm
+distrobox enter almalinux-rocm
+
+# E attiviamo l'ambiente virtuale py312
+conda activate py312
+```
+
+Si possono installare sia il pacchetto per l'inferenza che per il training.
+
+* Inferenza:
+
+```
+pip install onnxruntime_rocm -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
+```
+
+* Training:
+
+```
+pip install onnxruntime_training -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
+```
+
+### <a id="my-tensorflow">Tensorflow</a>
+
+**Presuppone che tu abbia seguito**:
+
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
+
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
+
+Installiamo il pacchetto direttamente dalla repository ufficiale di AMD:
+
+```
+# Da eseguire in ordine uno alla volta
+
+# Ovviamente entriamo nel container almalinux-rocm
+distrobox enter almalinux-rocm
+
+# E attiviamo l'ambiente virtuale py312
+conda activate py312
+```
+
+Si possono installare sia la versione base che nightly.
+
+* Base:
+
+```
+pip install tensorflow_rocm -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
+```
+
+* Nightly:
+
+```
+pip install tf_nightly_rocm -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/
+```
+
+### <a id="my-jax">JAX</a>
+
+**Presuppone che tu abbia seguito**:
+
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
+
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
+
+Installiamo il pacchetto direttamente dalla repository ufficiale di AMD:
+
+```
+# Da eseguire in ordine uno alla volta
+
+# Ovviamente entriamo nel container almalinux-rocm
+distrobox enter almalinux-rocm
+
+# E attiviamo l'ambiente virtuale py312
+conda activate py312
+
+# Infine installiamo i pacchetti
+pip install \
+https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/jax-0.4.35-py3-none-any.whl \
+https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/jax_rocm60_pjrt-0.4.35-py3-none-manylinux_2_28_x86_64.whl \
+https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/jax_rocm60_plugin-0.4.35-cp312-cp312-manylinux_2_28_x86_64.whl \
+https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.1/jaxlib-0.4.35-cp312-cp312-manylinux_2_28_x86_64.whl
 ```
 
 ### <a id="my-ctranslate2">CTranslate2</a>
