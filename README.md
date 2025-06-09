@@ -6,3 +6,5 @@ Tutto nasce dal voler tenere traccia di quello che funziona e quello che non lo 
 **Disclaimer: Non sono un programmatore, mi diverto semplicemente ad utilizzare quello che trovo, magari modificandolo un po'.**
 
 [Guida](Tutorial_rocm.md)
+
+[English guides](https://wasdtech.altervista.org/)
