@@ -5,7 +5,7 @@ Tutto nasce dal voler tenere traccia di quello che funziona e quello che non lo 
 
 **Disclaimer: Non sono un programmatore, mi diverto semplicemente ad utilizzare quello che trovo, magari modificandolo un po'.**
 
-[Guida](Tutorial_rocm.md)
+[Guida](https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/wiki/Guida)
 
 **For english version:**
 
