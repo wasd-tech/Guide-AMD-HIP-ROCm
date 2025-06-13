@@ -11,4 +11,4 @@ Tutto nasce dal voler tenere traccia di quello che funziona e quello che non lo 
 
 **For english version:**
 
-[English guides](https://wasdtech.altervista.org/)
+[English guides](https://wasdtech.altervista.org)
