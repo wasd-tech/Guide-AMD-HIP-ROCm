@@ -9,6 +9,6 @@ Tutto nasce dal voler tenere traccia di quello che funziona e quello che non lo 
 
 [Guida](https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/wiki/Guida)
 
-**For english version:**
+**For english version I opened a blog that talk about AMD:**
 
 [English guides](https://wasdtech.altervista.org)
