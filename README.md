@@ -7,7 +7,7 @@ Tutto nasce dal voler tenere traccia di quello che funziona e quello che non lo 
 
 **Disclaimer: Non sono un programmatore, mi diverto semplicemente ad utilizzare quello che trovo, magari modificandolo un po'.**
 
-[Guida](https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/blob/main/Tutorial_rocm.md)
+[Guida](https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/wiki)
 
 **For english version I opened a blog that talk about AMD:**
 
