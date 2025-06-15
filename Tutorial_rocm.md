@@ -36,7 +36,7 @@
 
 	* #### [Bitsandbytes](#my-bitsandbytes)
 
-	* #### [AWQ](#my-awq)
+	* #### [AutoAWQ](#my-autoawq)
 	
 	* #### [GPTQModel](#my-gptqmodel)
 
@@ -46,11 +46,13 @@
 
 	* #### [FBGEMM](#my-fbgemm)
 
+	* #### [torchao](#my-torchao)
+
 	* #### [ExLlamaV2](#my-exllamav2)
 
 	* #### [MLC](#my-mlc)
 
-	* #### [torchao](#my-torchao)
+	* #### [llm-compressor](#my-llm-compressor)
 	
 * ### Librerie
 
@@ -683,7 +685,7 @@ make -j$(nproc) \
 
 Per aggiornare la libreria purtroppo è necessario eliminare la cartella e ripetere la procedura da capo.
 
-### <a id="my-awq">AWQ</a>
+### <a id="my-autoawq">AutoAWQ</a>
 
 **Presuppone che tu abbia seguito**:
 
@@ -896,6 +898,27 @@ sudo dnf install -y cargo
 
 # Compiliamo
 cmake .. && cmake --build . --parallel $(nproc) && cd ..
+```
+
+### <a id="my-llm-compressor">llm-compressor</a>
+
+**Presuppone che tu abbia seguito**:
+
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
+
+* [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
+
+```
+# Da eseguire in ordine uno alla volta
+
+# Ovviamente entriamo nel container almalinux-rocm
+distrobox enter almalinux-rocm
+
+# E attiviamo l'ambiente virtuale py312
+conda activate py312
+
+# Infine installiamo il pacchetto
+pip install llmcompressor
 ```
 
 ### <a id="my-onnxruntime">ONNX Runtime</a>
