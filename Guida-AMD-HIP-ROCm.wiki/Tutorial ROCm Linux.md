@@ -77,6 +77,8 @@
 	* #### [lightning](#my-lightning)
 	
 	* #### [torchtune](#my-torchtune)
+
+	* #### [fluxgym](#my-fluxgym)
 	
 	* #### [Unsloth](#my-unsloth) **NON FUNZIONANTE**
 	
@@ -1252,6 +1254,61 @@ conda activate py312
 
 # Infine installiamo il pacchetto
 pip install --pre torchao torchtune --index-url https://download.pytorch.org/whl/nightly/rocm6.4
+```
+
+### <a id="my-fluxgym">fluxgym</a>
+
+
+**Presuppone che tu abbia seguito**:
+
+* [Creazione dell'ambiente tramite distrobox](#my-creazione-dell-ambiente-tramite-distrobox)
+
+**Ho personalmente modificato il programma per farlo eseguire su schede AMD. Sono riuscito a creare un modello ma c'è bisogno di fare ulteriori test. Ogni feedback è prezioso!!!**
+
+[Link alla repository](https://github.com/wasd-tech/fluxgym-rocm)
+
+[Link a sd-scripts-rocm](https://github.com/wasd-tech/sd-scripts-rocm)
+
+**È fortemente consigliato creare un ambiente virtuale appositamente per fluxgym. Di seguito i comandi daranno per scontato l'utilizzo di un generico ambiente virtuale chiamato py312.**
+
+**Python==3.12 obbligatoriamente e l'ambiente virtuale NON deve contenere torch o altro.**
+
+```
+# Da eseguire in ordine uno alla volta
+
+# Ovviamente entriamo nel container almalinux-rocm
+distrobox enter almalinux-rocm
+
+# E attiviamo l'ambiente virtuale py312
+conda activate py312
+```
+
+Cloniamo la repository principale e quella secondaria:
+
+```
+git clone https://github.com/wasd-tech/fluxgym-rocm \
+&& cd fluxgym \
+&& git clone -b sd3 https://github.com/wasd-tech/sd-scripts-rocm.git sd-scripts
+```
+
+Navigiamo nella cartella sd-scripts e installiamo i requisiti di sd-scripts
+
+```
+cd sd-scripts \
+&& pip install -r requirements_amd.txt
+```
+
+Torniamo indietro e installiamo i requisiti di fluxgym
+
+```
+cd .. \
+&& pip install -r requirements_amd.txt
+```
+
+Infine installiamo PyTorch sovrascrivendo la versione troppo vecchia usata dal programma (lo consiglia l'installazione di fluxgym in generale, per l'hardware nuovo è sicuramente obbligatorio)
+
+```
+pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm6.4
 ```
 
 ### <a id="my-unsloth">Unsloth</a>
