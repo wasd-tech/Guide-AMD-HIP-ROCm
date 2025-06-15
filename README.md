@@ -10,6 +10,8 @@ Tutto nasce dal voler tenere traccia di quello che funziona e quello che non lo 
 
 [Guida](https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/wiki)
 
+Se vuoi supportare il progetto apri un issue o inizia una conversazione per migliorare la guida o segnalare errori o qualsiasi cosa riguardi ROCm. Puoi anche contribuire testando tutto quello che trovi [qui](https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/wiki/Testing).
+
 Notizie importantissime per l'utilizzo di AMD su Windows. Stando ad indiscrezioni dovrebbe arrivare il supporto ONNX Runtime con backend ROCm/MIGraphX (per capirci quello buono che va 3 volte più veloce di DirectML) su Windows entro Luglio e per il Q3 supporto beta a PyTorch-rocm su Windows. Appena esce ovviamente farò una guida.
 
 ***
