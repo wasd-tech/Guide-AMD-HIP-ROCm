@@ -22,7 +22,7 @@ The guide is currently available only in Italian, I will translate it into Engli
 
 **Disclaimer: I am not a programmer, I simply enjoy using what I find and maybe modifying it a little bit..**
 
-**For english version I opened a blog that talk about AMD:**
+**For english version I opened a blog that talk about AMD ROCm:**
 
 [English guides](https://wasdtech.altervista.org)
 
