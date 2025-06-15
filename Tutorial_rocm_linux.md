@@ -157,7 +157,7 @@ il software di ROCm. Questo approccio ha più vantaggi ma i principali sono: nel
 caso di problemi o di un aggiornamento di ROCm basterà eliminare il container e
 crearlo da capo per ritornare ad un ambiente identico a quello consigliato da
 AMD; è possibile avere più versioni di ROCm differenti in sistemi differenti da
-testare in caso di problemi con versioni specifiche. Il comando per creare il
+testare in caso di problemi con versioni specifiche; è possibile installare ROCm su qualsiasi distribuzione Linux senza dover per forza installare Ubuntu o quelle supportate; aumenta la riproducibilità, cioè seguendo questa guida alla lettera la possibilità che qualcosa non funzioni solo a te e non ad altri è zero, quindi al contrario se funziona per una persona funziona per tutti. Il comando per creare il
 container è il seguente (per installare una differente versione di ROCm basta
 cambiare il numero della versione, in questo caso 6.4.1, con quello che volete,
 per esempio 6.3.3,):
@@ -201,6 +201,9 @@ export ROCR_VISIBLE_DEVICES="0"
 export OMP_DEFAULT_DEVICE="0"
 export GPU_DEVICE_ORDINAL="0"
 ```
+
+Se avete anche schede Nvidia in teoria bisognerebbe "mascherarla" rendendola invisibile ai programmi. La procedura è documentata ma non è mai stata testata da me. Se vi trovate in una situazione in cui i programmi tentano di usare la scheda Nvidia anzichè quella AMD aprite un Issue.
+
 Bisogna inserire un ulteriore parametro che però cambia in base alla
 scheda video che si vuole utilizzare:
 
@@ -300,7 +303,7 @@ Una volta fatta l'installazione ed averlo testato per vedere se tutto funziona a
 
 * navigare con il gestore file fino a raggiungere la cartella contenente il programma.
 * Aprire il terminale in quella cartella: tasto destro e clicca "apri terminale qui"
-* `distrobox enter almalinux-rocm` per entrare nel container.
+* `distrobox enter almalinux-rocm` per entrare nel container ed eventualmente attivare l'ambiente python.
 * Eseguire il comando corrispondente per avviare il programma.
 
 Per quanto riguarda l'ambiente virtuale di python il consiglio è di creare sempre ambienti virtuali separati per ogni programma da utilizzare (Llama-factory, axolotl, ecc.).
@@ -446,7 +449,7 @@ E ripetere le istruzioni per compilare il codice.
 
 * [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
-Considero vllm uno strumento molto avanzato per il serving di llm quindi in realtà non rientra tra le librerie che un semplice utilizzatore di programmi AI ha bisogno ma essendo un pacchetto legato a Llama-factory spiegherò come installarlo. Per un utilizzo più estensivo, cioè se si desidera utilizzare principalmente questa libreria, si consiglia di utilizzare i [docker ufficiali forniti da AMD](https://hub.docker.com/u/rocm?page=1&search=vllm). Dalla wiki ufficiale di vllm viene suggerito di installare triton per il supporto di flash attention, si consiglia di dare un occhiata alla parte di guida che riguarda [flash attention](#my-flashattention).
+Considero vllm uno strumento molto avanzato per il serving di llm quindi in realtà non rientra tra le librerie che un semplice utilizzatore di programmi AI ha bisogno ma essendo un pacchetto legato a Llama-Factory spiegherò come installarlo. Per un utilizzo più estensivo, cioè se si desidera utilizzare principalmente questa libreria, si consiglia di utilizzare i [docker ufficiali forniti da AMD](https://hub.docker.com/u/rocm?page=1&search=vllm). Dalla wiki ufficiale di vllm viene suggerito di installare triton per il supporto di flash attention, si consiglia di dare un occhiata alla parte di guida che riguarda [flash attention](#my-flashattention).
 
 Iniziamo clonando la repository:
 
@@ -455,7 +458,7 @@ git clone https://github.com/ROCm/vllm.git \
 && cd vllm
 ```
 
-Entriamo nel container almalinux-rocm e installiamo una versione differente di gcc perché almalinux ne utilizza una troppo vecchia(nel caso si stesse utilizzando un container Ubuntu la versione di gcc dovrebbe essere già sufficentemente alta):
+Entriamo nel container almalinux-rocm e installiamo una versione differente di gcc perché almalinux ne utilizza una troppo vecchia(nel caso si stesse utilizzando un container Ubuntu la versione di gcc dovrebbe essere già sufficentemente alta). La guida mostra i comandi con il generico ambiente virtuale py312 (quello creato durante l'installazione di PyTorch) ma consiglio di creare specifici ambienti virtuali per ogni programma:
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -523,7 +526,7 @@ Navigiamo nella cartella:
 cd stable-diffusion-webui
 ```
 
-Entriamo nel container almalinux-rocm e attiviamo l'ambiente virtuale creato prima con pytorch installato:
+Entriamo nel container almalinux-rocm e attiviamo l'ambiente virtuale creato prima con pytorch installato. La guida mostra i comandi con il generico ambiente virtuale py312 (quello creato durante l'installazione di PyTorch) ma consiglio di creare specifici ambienti virtuali per ogni programma:
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -580,7 +583,7 @@ Navigiamo nella cartella:
 cd ComfyUI
 ```
 
-Entriamo nel container almalinux-rocm e attiviamo l'ambiente virtuale creato prima con pytorch installato:
+Entriamo nel container almalinux-rocm e attiviamo l'ambiente virtuale creato prima con pytorch installato. La guida mostra i comandi con il generico ambiente virtuale py312 (quello creato durante l'installazione di PyTorch) ma consiglio di creare specifici ambienti virtuali per ogni programma:
 
 ```
 # Da eseguire in ordine uno alla volta
@@ -820,7 +823,7 @@ pip install --pre torchao --index-url https://download.pytorch.org/whl/nightly/r
 
 * [Setup di pytorch nel container](#my-setup-pytorch-nel-container)
 
-Entriamo nel container almalinux-rocm e utilizziamo una versione differente di gcc perché almalinux di base ne utilizza una troppo vecchia(nel caso si stesse utilizzando un container Ubuntu la versione di gcc dovrebbe essere già sufficentemente alta:
+Entriamo nel container almalinux-rocm e utilizziamo una versione differente di gcc perché almalinux di base ne utilizza una troppo vecchia(nel caso si stesse utilizzando un container Ubuntu la versione di gcc dovrebbe essere già sufficentemente alta). La guida mostra i comandi con il generico ambiente virtuale py312 (quello creato durante l'installazione di PyTorch) ma consiglio di creare specifici ambienti virtuali per ogni programma:
 
 ```
 # Da eseguire in ordine uno alla volta
