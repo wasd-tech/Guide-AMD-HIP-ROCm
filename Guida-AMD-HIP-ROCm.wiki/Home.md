@@ -1,5 +1,5 @@
-# Welcome to AMD HIP/ROCm wiki!
+Welcome to AMD HIP/ROCm wiki!
 
-[[Linux|Tutorial ROCm Linux]]
+[[Linux|Linux]]
 
-[[Windows|Tutorial ROCm Windows]]
+[[Windows|Windows]]
