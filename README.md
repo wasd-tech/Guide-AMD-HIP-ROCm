@@ -1,4 +1,4 @@
-# Guida-AMD-HIP-ROCm
+# Guide-AMD-HIP-ROCm
 
 Italiano
 
