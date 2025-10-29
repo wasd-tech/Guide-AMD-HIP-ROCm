@@ -12,7 +12,7 @@ Tutto nasce dal voler tenere traccia di quello che funziona e quello che non lo 
 
 Se vuoi supportare il progetto apri un issue o inizia una conversazione per migliorare la guida o segnalare errori o qualsiasi cosa riguardi ROCm. Puoi anche contribuire testando tutto quello che trovi [qui](https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/wiki/Testing).
 
-Server discord:https://discord.gg/37kpjSKqDX
+Server Discord:https://discord.gg/37kpjSKqDX
 
 ***
 
@@ -28,4 +28,4 @@ The guide is currently available only in Italian, I will translate it into Engli
 
 If you would like to support the project, please open an issue or start a discussion to improve the guide or report something. You can also contribute by testing the things you find [here](https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/wiki/Testing).
 
-Server discord:https://discord.gg/37kpjSKqDX
+Discord server:https://discord.gg/37kpjSKqDX
