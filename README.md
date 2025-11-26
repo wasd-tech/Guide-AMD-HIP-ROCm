@@ -20,6 +20,8 @@ English
 
 The guide is currently available only in Italian, I will translate it into English soon.
 
+A Complete Newbie's Guide to Using ROCm on Linux **and Windows**
+
 **Disclaimer: I am not a programmer, I simply enjoy using what I find and maybe modifying it a little bit..**
 
 **For english version I opened a blog that talk about AMD ROCm:**
