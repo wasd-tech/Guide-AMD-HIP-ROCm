@@ -5,6 +5,7 @@ export GPU_DEVICE_ORDINAL="0"
 export PYTORCH_CUDA_ALLOC_CONF=garbage_collection_threshold:0.4,max_split_size_mb:256
 #export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export PYTHONPATH=/opt/rocm/lib:$PYTHONPATH
+export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
 export TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1
 export FLASH_ATTENTION_TRITON_AMD_ENABLE="TRUE"
 export FLASH_ATTENTION_TRITON_AMD_AUTOTUNE="TRUE"
