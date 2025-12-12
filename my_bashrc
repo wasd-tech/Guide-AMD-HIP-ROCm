@@ -2,7 +2,10 @@ export HIP_VISIBLE_DEVICES="0"
 export ROCR_VISIBLE_DEVICES="0"
 export OMP_DEFAULT_DEVICE="0"
 export GPU_DEVICE_ORDINAL="0"
-export PYTORCH_CUDA_ALLOC_CONF=garbage_collection_threshold:0.4,max_split_size_mb:256
+export ROCBLAS_USE_HIPBLASLT=1
+export ROCBLAS_USE_HIPBLASLT_BATCHED=1
+export USE_HIPBLASLT_GROUPED_GEMM=1
+export PYTORCH_ALLOC_CONF=garbage_collection_threshold:0.4,max_split_size_mb:256
 #export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export PYTHONPATH=/opt/rocm/lib:$PYTHONPATH
 export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
@@ -20,3 +23,4 @@ export ORT_MIGRAPHX_MODEL_CACHE_PATH="$HOME/.cache/migraphx"
 export ORT_MIGRAPHX_MODEL_PATH="$HOME/.cache/migraphx"
 export ORT_MIGRAPHX_SAVE_COMPILED_PATH="$HOME/.cache/migraphx"
 export ORT_MIGRAPHX_LOAD_COMPILED_PATH="$HOME/.cache/migraphx"
+
